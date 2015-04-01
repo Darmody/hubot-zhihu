@@ -40,7 +40,7 @@ module.exports = (robot) ->
                 if err
                     msg.send "Encountered an error :( #{err}"
                     return
-                log body
+                console.log body
                 msg.reply body
 
   robot.hear /orly/, ->
