@@ -13,25 +13,6 @@
 #
 # Author:
 #   Darmody[@<org>]
-# request = require('request')
-# async = require('async')
-
-# class Zhihu
-    # construct: () ->
-
-    # getNew: (callback) ->
-        # async.waterfall [
-            # (cb) ->
-                # options = {
-                    # url: 'http://news-at.zhihu.com/api/4/news/latest ',
-                    # method: 'GET'
-                # }
-
-                # request options, (err, res, body) ->
-                    # log body
-                    # cb err, body
-        # ], (err, ret) ->
-            # callback(err, ret);
 
 module.exports = (robot) ->
   robot.respond /zhihu/, (msg) ->
@@ -40,8 +21,15 @@ module.exports = (robot) ->
                 if err
                     msg.send "Encountered an error :( #{err}"
                     return
-                console.log body
-                msg.reply body
+
+                body = JSON.parse(body);
+                content = ''
+                content += '#知乎日报\n'
+
+                for story in body.stories
+                    content += '##' + story.title + '\n'
+                    content += story.images[0] + '\n'
+                msg.reply content
 
   robot.hear /orly/, ->
     msg.send "yarly"
