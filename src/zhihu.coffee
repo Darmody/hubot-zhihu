@@ -15,7 +15,7 @@
 #   Darmody[@<org>]
 
 module.exports = (robot) ->
-  robot.hear /(知乎|zhihu) ( me)/i, (msg) ->        # 获取知乎日报列表
+  robot.hear /(知乎|zhihu) (me)/i, (msg) ->        # 获取知乎日报列表
     msg.http("http://news-at.zhihu.com/api/4/news/latest")        # 请求知乎日报API
             .get() (err, res, body) ->
                 if err      # 错误处理
@@ -27,9 +27,9 @@ module.exports = (robot) ->
                 content = ''
 
                 story = msg.random body.stories
-                content += story.title + '\n'
+                content += '<h1>文章:' + story.title + '</h1>\n'
                 content += story.images[0] + '\n'
-                content += story.id + '\n'
+                content += '文章id:' + story.id + '\n'
                 msg.send content
   # robot.hear /orly/, (msg) ->
     # msg.send "yarly"
