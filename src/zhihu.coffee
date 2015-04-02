@@ -27,8 +27,8 @@ module.exports = (robot) ->
                 content = ''
 
                 story = msg.random body.stories
-                content += '<h1>文章:' + story.title + '</h1>\n'
-                content += '文章id:<code>' + story.id + '</code>\n'
+                content += '文章:*' + story.title + '*\n'
+                content += '文章id:`' + story.id + '`\n'
                 content += story.images[0] + '\n'
                 msg.send content
   # robot.hear /orly/, (msg) ->
