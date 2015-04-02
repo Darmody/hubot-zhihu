@@ -27,6 +27,13 @@ module.exports = (robot) ->
                 content = ''
                 content += '#知乎日报\n'
 
+                content += '##置顶故事\n'
+                for story in body.top_stories
+                    content += '##' + story.title + '\n'
+                    content += story.images[0] + '\n'
+                    content +=
+
+                content += '##今日故事\n'
                 for story in body.stories
                     content += '##' + story.title + '\n'
                     content += story.images[0] + '\n'
