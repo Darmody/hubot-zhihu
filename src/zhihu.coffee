@@ -31,5 +31,5 @@ module.exports = (robot) ->
                     content += story.images[0] + '\n'
                 msg.reply content
 
-  robot.hear /orly/, ->
+  robot.hear /orly/, (msg) ->
     msg.send "yarly"
