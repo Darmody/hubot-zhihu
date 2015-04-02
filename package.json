@@ -1,7 +1,7 @@
 {
   "name": "hubot-zhihu",
   "description": "hubot知乎日报获取",
-  "version": "0.0.4-1",
+  "version": "0.0.4-2",
   "author": "Darmody <eterlf41@gmail.com>",
   "license": "MIT",
   "keywords": [
