@@ -31,12 +31,14 @@ module.exports = (robot) ->
                 for story in body.top_stories
                     content += '##' + story.title + '\n'
                     content += story.images[0] + '\n'
-                    content +=
+                    content += '故事id:' + story.id + '\n'
 
                 content += '##今日故事\n'
                 for story in body.stories
                     content += '##' + story.title + '\n'
                     content += story.images[0] + '\n'
+                    content += '故事id:' + story.id + '\n'
+
                 msg.reply content
 
   # robot.hear /orly/, (msg) ->
